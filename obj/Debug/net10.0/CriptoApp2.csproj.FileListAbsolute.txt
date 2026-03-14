@@ -1,0 +1,4 @@
+G:\ProjectVS\CriptoApp2\obj\Debug\net10.0\CriptoApp2.GeneratedMSBuildEditorConfig.editorconfig
+G:\ProjectVS\CriptoApp2\obj\Debug\net10.0\CriptoApp2.AssemblyInfoInputs.cache
+G:\ProjectVS\CriptoApp2\obj\Debug\net10.0\CriptoApp2.AssemblyInfo.cs
+G:\ProjectVS\CriptoApp2\obj\Debug\net10.0\CriptoApp2.csproj.CoreCompileInputs.cache
