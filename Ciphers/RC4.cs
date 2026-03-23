@@ -9,11 +9,12 @@ namespace CryptoCoursework.Ciphers
         private int _j = 0;
         private bool _initialized = false;
 
+        //KSA
         public void SetKey(byte[] key)
         {
             // Инициализация S-бокса
             for (int i = 0; i < 256; i++)
-                _S[i] = (byte)i;
+            { _S[i] = (byte)i; }
 
             for (int i = 0, j = 0; i < 256; i++)
             {
@@ -26,9 +27,10 @@ namespace CryptoCoursework.Ciphers
             _initialized = true;
         }
 
+        //PRGA
         public byte[] ProcessBytes(byte[] input, int offset = 0, int length = -1)
         {
-            if (!_initialized) throw new InvalidOperationException("Key not set");
+            if (!_initialized) throw new InvalidOperationException("Ключ не установлен");
 
             if (length == -1)
                 length = input.Length - offset;

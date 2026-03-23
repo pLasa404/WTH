@@ -72,7 +72,7 @@ namespace CryptoCoursework.Ciphers
 
         public void SetKey(byte[] key)
         {
-            if (key.Length != 8) throw new ArgumentException("DES key must be 8 bytes");
+            if (key.Length != 8) throw new ArgumentException("DES key 8 байт");
             GenerateSubKeys(key);
         }
 
@@ -96,7 +96,7 @@ namespace CryptoCoursework.Ciphers
                 Array.Copy(D, 0, CD, 28, 28);
 
                 bool[] subKeyBits = PermuteBits(CD, PC2);
-                _subKeys[i] = BitsToBytes48(subKeyBits); // !
+                _subKeys[i] = BitsToBytes48(subKeyBits); // в байты
             }
         }
 
@@ -104,12 +104,11 @@ namespace CryptoCoursework.Ciphers
         {
             byte[] block = new byte[8];
             Array.Copy(input, offset, block, 0, 8);
-
             bool[] bits = BytesToBits(block);
             bits = PermuteBits(bits, IP);
-
             bool[] L = new bool[32];
             bool[] R = new bool[32];
+
             Array.Copy(bits, 0, L, 0, 32);
             Array.Copy(bits, 32, R, 0, 32);
 
@@ -123,7 +122,6 @@ namespace CryptoCoursework.Ciphers
             bool[] combined = new bool[64];
             Array.Copy(R, 0, combined, 0, 32);
             Array.Copy(L, 0, combined, 32, 32);
-
             combined = PermuteBits(combined, FP);
             return BitsToBytes(combined);
         }
@@ -160,7 +158,7 @@ namespace CryptoCoursework.Ciphers
         private bool[] FeistelFunction(bool[] r, byte[] subKey)
         {
             bool[] expanded = ExpandBits(r, E);
-            bool[] keyBits = BytesToBits48(subKey); // !
+            bool[] keyBits = BytesToBits48(subKey);
             bool[] xored = XorBits(expanded, keyBits);
 
             bool[] sboxOutput = new bool[32];
